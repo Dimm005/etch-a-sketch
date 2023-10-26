@@ -28,7 +28,7 @@ buttonsContainer.style.height = availableHeight + "px";
 
 /* Set properties of field element */
 const field = document.getElementById("field");
-field.style.backgroundColor = "#fff";
+field.style.backgroundColor = "#fff"; // used in grey mode 
 field.style.height = fieldSizePx + "px";
 field.style.width = fieldSizePx + "px";
 
@@ -77,11 +77,16 @@ function randomMode(block) {
 10% darker */
 function greyMode(block) {
     let style = window.getComputedStyle(block); 
-    let oldOpacity = style.backgroundColor[16]; // get current opacity
+    let oldOpacity = parseInt(style.backgroundColor[16]); // get current opacity
     if (!oldOpacity) {  // set opacity to 0 if it's not defined
         oldOpacity = 0; 
     };
-    let newOpacity = oldOpacity + 1;
+    let newOpacity = 0;
+    if(oldOpacity < 9) { // prevent cycling of color
+        newOpacity = oldOpacity +1;
+    } else {
+        newOpacity = 9;
+    };
     if (newOpacity < 10) {
         block.style.backgroundColor = "rgba(0, 0, 0, 0." + newOpacity;
     } else {
@@ -90,8 +95,16 @@ function greyMode(block) {
 };
 
 
+
+createField(fieldBlocks, blockSizePx);
+const blocks = document.querySelectorAll(".block");
+blocks.forEach((block) => {
+    block.addEventListener("mouseover", () => {
+        greyMode(block);
+    });
+});
+
 /*
-createField(16, 55);
 let b = document.querySelector(".block");
 greyMode(b);
 

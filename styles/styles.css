@@ -62,4 +62,7 @@ footer {
 #field {
     background-color: #fff;
     margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
