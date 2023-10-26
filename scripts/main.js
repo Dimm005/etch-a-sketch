@@ -37,6 +37,7 @@ function createField (fieldBlocks, blockSizePx) {
     let blocksAmount = fieldBlocks * fieldBlocks; // total amount of blocks
     for (let i = 1; i <= blocksAmount; i++) {
         let block = document.createElement("div");
+        block.classList.add("block");
         block.style.backgroundColor = "rgba(0, 0, 0, 0)";
         block.style.height = blockSizePx + "px";
         block.style.width = blockSizePx + "px";
@@ -45,4 +46,16 @@ function createField (fieldBlocks, blockSizePx) {
     return;
 };
 
+/* Function that clear the field if it's not empty */
+function clearField () {
+    let existingBlocks = document.querySelectorAll(".block");
+    while (existingBlocks != undefined) {
+        let blockToRemove = document.querySelector(".block");
+        field.removeChild(blockToRemove);
+    };
+    return;
+}
 
+/*createField(16, 55);
+alert("Remove?");
+clearField();*/
