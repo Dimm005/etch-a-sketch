@@ -1,8 +1,9 @@
-/* Set the amount of blocks by default */
-let fieldBlocks = 16;
-
+/* Set initial parameters */
+let fieldBlocks = 16; // set the amount of blocks by default
 const usedHeight = 60; // height of footer and header together
 const usedWidth = 190; // width of buttons_contaitner
+let mode = "simple" // set mode by default, can be 'simple', 'grey' or 'random'
+
 
 /* Calculate field size and size of the blocks */
 let fieldSizePx = 0;
@@ -54,8 +55,29 @@ function clearField () {
         field.removeChild(blockToRemove);
     };
     return;
+};
+
+/* Simple mode function: change color of the block to black */
+function simpleMode(block) {
+    block.style.backgroundColor = "rgba(0, 0, 0, 1";
+};
+
+/* Random mode function: change color of the block to random
+color */
+function randomMode(block) {
+    let randomRGB = [];
+    for (let i = 0; i < 3; i++) {
+        randomRGB[i] = Math.floor(Math.random() * 256);
+    };
+    let randomColor = "rgba(" + randomRGB[0].toString() + ", " + randomRGB[1].toString() + ", " + randomRGB[2].toString() + ", 1)";
+    block.style.backgroundColor = randomColor;
 }
 
+
 /*createField(16, 55);
-alert("Remove?");
+let b = document.querySelector(".block");
+randomMode(b);
+
+
+/*alert("Remove?");
 clearField();*/
