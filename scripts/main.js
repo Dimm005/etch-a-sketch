@@ -73,10 +73,27 @@ function randomMode(block) {
     block.style.backgroundColor = randomColor;
 }
 
+/* Grey mode function: makes color (initilly white) of the block
+10% darker */
+function greyMode(block) {
+    let style = window.getComputedStyle(block); 
+    let oldOpacity = style.backgroundColor[16]; // get current opacity
+    if (!oldOpacity) {  // set opacity to 0 if it's not defined
+        oldOpacity = 0; 
+    };
+    let newOpacity = oldOpacity + 1;
+    if (newOpacity < 10) {
+        block.style.backgroundColor = "rgba(0, 0, 0, 0." + newOpacity;
+    } else {
+        block.style.backgroundColor = "rgba(0, 0, 0, 1)";
+    };
+};
 
-/*createField(16, 55);
+
+/*
+createField(16, 55);
 let b = document.querySelector(".block");
-randomMode(b);
+greyMode(b);
 
 
 /*alert("Remove?");
