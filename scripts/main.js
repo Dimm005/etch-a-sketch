@@ -36,7 +36,6 @@ const sizeButton = document.getElementById("size_button");
 sizeButton.addEventListener("click", () => {
     while (true) {
         fieldBlocks = parseInt(prompt("Enter amount of blocks per side (between 5 and 100): "));
-        console.log(fieldBlocks);
         if (isNaN(fieldBlocks)) {
             alert("You entered not a number. Try again");
         } else if (fieldBlocks < 5 || fieldBlocks >100) {
@@ -48,7 +47,23 @@ sizeButton.addEventListener("click", () => {
     newField();
 });
 
+const simpleButton = document.getElementById("simple_button");
+simpleButton.addEventListener("click", () => {
+    mode = "simple";
+    newField();
+});
 
+const greyButton = document.getElementById("grey_button");
+greyButton.addEventListener("click", () => {
+    mode = "grey";
+    newField();
+});
+
+const randomButton = document.getElementById("random_button");
+randomButton.addEventListener("click", () => {
+    mode = "random";
+    newField();
+});
 
 const clearButton = document.getElementById("clear_button");
 clearButton.addEventListener("click", () => {
@@ -172,32 +187,3 @@ function greyMode(block) {
         block.style.backgroundColor = "rgba(0, 0, 0, 1)";
     };
 };
- 
-
-
-// const blocks = document.querySelectorAll(".block");
-// blocks.forEach((block) => {
-//     block.addEventListener("mouseover", () => {
-//         greyMode(block);
-//     });
-// });
-
-// while (true) {  // main cycle of the page
-//     // add buttons event
-//     const sizeButton = document.getElementById("size_button");
-//     sizeButton.addEventListener("click", () => {
-
-//     })
-
-//     const clearButton = document.getElementById("clear_button");
-//     clearButton.addEventListener("click", () => {
-//     clearField();
-//     createField(fieldBlocks, blockSizePx);
-//     });
-
-
-
-// }
-
-
-
