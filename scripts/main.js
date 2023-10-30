@@ -3,21 +3,24 @@ let fieldBlocks = 16; // set the amount of blocks by default
 const usedHeight = 60; // height of footer and header together
 const usedWidth = 190; // width of buttons_contaitner
 let mode = "simple" // set mode by default, can be 'simple', 'grey' or 'random'
-
-
-/* Calculate field size and size of the blocks */
 let fieldSizePx = 0;
-let availableHeight = document.documentElement.clientHeight - usedHeight; 
-let availableWidth = document.documentElement.clientWidth - usedWidth; 
+let blockSizePx = 0
 
-if (availableHeight < availableWidth) { // select the smallest dimension
-    fieldSizePx = availableHeight;
-} else {
-    fieldSizePx = availableWidth;
+/* Function that calculates field size and size of the blocks */
+function calculateSizes () {
+    let availableHeight = document.documentElement.clientHeight - usedHeight; 
+    let availableWidth = document.documentElement.clientWidth - usedWidth;
+    let fieldSizePx = 0;
+
+    if (availableHeight < availableWidth) { // select the smallest dimension
+        fieldSizePx = availableHeight;
+    } else {
+        fieldSizePx = availableWidth;
+    };
+    fieldSizePx = fieldSizePx - fieldSizePx % fieldBlocks;
+    blockSizePx = fieldSizePx / fieldBlocks;
+    return [fieldSizePx, blockSizePx];
 };
-
-fieldSizePx = fieldSizePx - fieldSizePx % fieldBlocks;
-let blockSizePx = fieldSizePx / fieldBlocks;
 
 /* Set height of main elements */
 const mainContainer = document.getElementById("main_container");
@@ -109,10 +112,22 @@ blocks.forEach((block) => {
     });
 });
 
-const clearButton = document.getElementById("clear_button");
-clearButton.addEventListener("click", () => {
+while (true) {  // main cycle of the page
+    // add buttons event
+    const sizeButton = document.getElementById("size_button");
+    sizeButton.addEventListener("click", () => {
+
+    })
+
+    const clearButton = document.getElementById("clear_button");
+    clearButton.addEventListener("click", () => {
     clearField();
     createField(fieldBlocks, blockSizePx);
-});
+    });
+
+
+
+}
+
 
 
