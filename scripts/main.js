@@ -29,23 +29,28 @@ createField(fieldBlocks, blockSizePx);
 
 /* Add blocks to the field */
 const blocks = document.querySelectorAll(".block");
-addModeToBlocks();
+addModeToBlocks(mode);
 
 /* add buttons event */
 const sizeButton = document.getElementById("size_button");
 sizeButton.addEventListener("click", () => {
-
+    
 })
 
 const clearButton = document.getElementById("clear_button");
 clearButton.addEventListener("click", () => {
-clearField();
-createField(fieldBlocks, blockSizePx);
+    clearField();
+    sizes = calculateSizes();
+    fieldSizePx = sizes[0];
+    blockSizePx = sizes[1];
+    createField(fieldBlocks, blockSizePx);
+    addModeToBlocks(mode);
 });
-}
+
 
 /* Function that add event listners with needed mode to the blocks */
-function addModeToBlocks() {
+function addModeToBlocks(mode) {
+    const blocks = document.querySelectorAll(".block");
     blocks.forEach((block) => {
         switch (mode) {
             case "simple":
@@ -94,9 +99,6 @@ function createField (fieldBlocks, blockSizePx) {
         block.style.backgroundColor = "rgba(0, 0, 0, 0)";
         block.style.height = blockSizePx + "px";
         block.style.width = blockSizePx + "px";
-        block.addEventListener("mouseover", () => {
-            greyMode(block);
-        });
         field.appendChild(block);
     };
     return;
