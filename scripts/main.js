@@ -34,8 +34,21 @@ addModeToBlocks(mode);
 /* add buttons event */
 const sizeButton = document.getElementById("size_button");
 sizeButton.addEventListener("click", () => {
-    
-})
+    while (true) {
+        fieldBlocks = parseInt(prompt("Enter amount of blocks per side (between 5 and 100): "));
+        console.log(fieldBlocks);
+        if (isNaN(fieldBlocks)) {
+            alert("You entered not a number. Try again");
+        } else if (fieldBlocks < 5 || fieldBlocks >100) {
+            alert("You entered a wrong number. Try again");
+        } else {
+            break;
+        };
+    };
+    newField();
+});
+
+
 
 const clearButton = document.getElementById("clear_button");
 clearButton.addEventListener("click", () => {
