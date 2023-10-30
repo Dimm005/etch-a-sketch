@@ -39,14 +39,19 @@ sizeButton.addEventListener("click", () => {
 
 const clearButton = document.getElementById("clear_button");
 clearButton.addEventListener("click", () => {
+    newField();
+});
+
+/* Function that clears the field, create new one and add event 
+listners to the blocks */
+function newField () {
     clearField();
     sizes = calculateSizes();
     fieldSizePx = sizes[0];
     blockSizePx = sizes[1];
     createField(fieldBlocks, blockSizePx);
     addModeToBlocks(mode);
-});
-
+}
 
 /* Function that add event listners with needed mode to the blocks */
 function addModeToBlocks(mode) {
