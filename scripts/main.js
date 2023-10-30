@@ -49,10 +49,15 @@ function createField (fieldBlocks, blockSizePx) {
 
 /* Function that clear the field if it's not empty */
 function clearField () {
-    let existingBlocks = document.querySelectorAll(".block");
-    while (existingBlocks != undefined) {
+    let i = true
+    while (i) {
         let blockToRemove = document.querySelector(".block");
-        field.removeChild(blockToRemove);
+        if (blockToRemove != null) {
+                    field.removeChild(blockToRemove);
+        } else {
+            i = false;
+        };
+
     };
     return;
 };
@@ -104,10 +109,10 @@ blocks.forEach((block) => {
     });
 });
 
-/*
-let b = document.querySelector(".block");
-greyMode(b);
+const clearButton = document.getElementById("clear_button");
+clearButton.addEventListener("click", () => {
+    clearField();
+    createField(fieldBlocks, blockSizePx);
+});
 
 
-/*alert("Remove?");
-clearField();*/
