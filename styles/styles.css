@@ -56,8 +56,17 @@ footer {
     margin: 20px 10px;
     padding: 5px;
     border: 2px solid #3B3F48;
-    border-radius: 3px;
+    border-radius: 7px;
     background-color: #686F7F;
+    font-family: Lobster, 'Courier New';
+    color: #3B3F48;
+    font-size: 120%;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #5B7171;
+    color: #3E4A4A;
 }
 
 #field {
@@ -66,4 +75,9 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+h1 {
+    font-family: Lobster, 'Courier New';
+    color:#eee;
 }
