@@ -25,7 +25,7 @@ const field = document.getElementById("field");
 field.style.backgroundColor = "#fff"; // used in grey mode 
 field.style.height = fieldSizePx + "px";
 field.style.width = fieldSizePx + "px";
-createField(fieldBlocks, blockSizePx);
+fillField(fieldBlocks, blockSizePx);
 
 /* Add blocks to the field */
 const blocks = document.querySelectorAll(".block");
@@ -77,7 +77,9 @@ function newField () {
     sizes = calculateSizes();
     fieldSizePx = sizes[0];
     blockSizePx = sizes[1];
-    createField(fieldBlocks, blockSizePx);
+    field.style.height = fieldSizePx + "px";
+    field.style.width = fieldSizePx + "px";
+    fillField(fieldBlocks, blockSizePx);
     addModeToBlocks(mode);
 }
 
@@ -110,7 +112,7 @@ function addModeToBlocks(mode) {
 function calculateSizes () {
     availableHeight = document.documentElement.clientHeight - usedHeight; 
     availableWidth = document.documentElement.clientWidth - usedWidth;
-    let fieldSizePx = 0;
+    // let fieldSizePx = 0;
 
     if (availableHeight < availableWidth) { // select the smallest dimension
         fieldSizePx = availableHeight;
@@ -124,7 +126,7 @@ function calculateSizes () {
 
 /* Function that creates a new field with given amount of blocks
 and size of a block in px */
-function createField (fieldBlocks, blockSizePx) {
+function fillField (fieldBlocks, blockSizePx) {
     let blocksAmount = fieldBlocks * fieldBlocks; // total amount of blocks
     for (let i = 1; i <= blocksAmount; i++) {
         let block = document.createElement("div");

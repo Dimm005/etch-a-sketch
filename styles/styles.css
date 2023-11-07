@@ -24,7 +24,7 @@ a:hover  {
 /* End of reset */
 
 body {
-    background-color: #aaaaaa;
+    background-color: #3B3F48;
 }
 
 header {
@@ -57,6 +57,7 @@ footer {
     padding: 5px;
     border: 2px solid #3B3F48;
     border-radius: 3px;
+    background-color: #686F7F;
 }
 
 #field {
